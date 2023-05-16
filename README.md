@@ -7,8 +7,9 @@ Seminarska naloga govori pandemiji Covid v Sloveniji, ki je trajala od leta 2020
 
 2. Delavno okolje
 2.1 Podatki
-Podatke črpava iz Spletne strani Covid Sledilnik oz. njegovega Git repozitorija, kjer imajo shranjene v csv datotekah ter SiStat. Časovno obdobje je za večino obdobje pandemije torej od leta 2020 do danes(april 23). Večinoma sva črpala podatke iz datotek o stanju v bolnišnicah, okuženosti, smrtnosti in cepljenju. Vsebujejo pa tudi druge bolj splošne podatke kot so smrtnost v zadnjih 20 letih, policijska poročila, stanje v kanalizacijah, podatke o šolah, itd.
+Podatke večinoma črpava iz Spletne strani Covid Sledilnik oz. njegovega Git repozitorija, kjer imajo shranjene v csv datotekah. Časovno obdobje je za večino obdobje pandemije torej od leta 2020 do danes(maj 17). Večinoma sva črpala podatke iz datotek o stanju v bolnišnicah, okuženosti, smrtnosti in cepljenju. Vsebujejo pa tudi druge bolj splošne podatke kot so smrtnost v zadnjih 20 letih, policijska poročila, stanje v kanalizacijah, podatke o šolah, itd.
 Podatke imajo načeloma shranjene vedno skozi čas, kjer imajo shranjene dnevne podatke, večinoma pa jih hranijo v sistemu »to date« oz. vsak dan je seštevek vseh prejšnjih plus današnji.
+Prav tako sva uporabila StatSi skjer sva črpala smrtnost in rodnost v Sloveniji.
 2.2 Knjižnice
 Za delo sva v večini uporabljala knjižnico Pandas oz. njegov dataframe za obdelovanje podatkov in kot dodatek po potrebi Numpy za sezname. Za prikazovanje podatkov, kot so grafi pa sva uporabljala matplotlib.
 
@@ -21,17 +22,25 @@ V Sloveniji je bilo veliko govora o smrtnosti, češ da vsak, ki umre okužen z 
 Slika 1: Graf števila umrlih ljudi v Sloveniji po letih (modra), pričakovana smrtnost (oranžna)
 
 
-Graf pokaže z modro črto koliko ljudi je umrlo od leta 2010 do 2022. Z oranžno pa smo poskušali ugotoviti trend rasti, ki znaša 0.87% letno od 2010 do 2019. Na ta način sva dobila neko pričakovano smrtnost za covidna leta ampak kot vidimo je umrlo veliko več ljudi.
+Graf pokaže z modro črto koliko ljudi je umrlo od leta 2010 do 2022. Z oranžno pa sva poskušali ugotoviti trend rasti na podlagi letnega števila smrti in populacije, ki znaša 0.87% letno od 2010 do 2019. Na ta način sva dobila neko pričakovano smrtnost za covidna leta, ampak kot vidimo je umrlo veliko več ljudi.
+Da bomo še bolj natačni, smo izračunali še povprečno napako, ki znaša `~16` ljudi.
+
+Povzamimo vsa tri leta:
+2020: Predvidenih je 21657 smrti, a bilo jih je 24962, kar je 3305(3321) ljudi preveč. 
+2021: Predvidenih je 21845 smrti, a bilo jih je 24103, kar je 2258(2274) ljudi preveč. 
+2022: Predvidenih je 22034 smrti, a bilo jih je 23300, kar je 1266(1282) ljudi preveč. 
 
 ![image](https://user-images.githubusercontent.com/82542995/232958949-7a6a3de7-4046-46d9-bb48-18fae51539c5.png)
 
 Slika 2: Smrtnost z pričakovano vrednostjo plus prijavljene žrtve covida
-
-
  
-Sedaj pa sva pa sva tej napovedi dodala število ljudi, za katere je bil vzrok smrti covid. Kot vidimo je leta 2020: Umrlo nekaj 100 več ljudi kot bi pričakovali. Torej so v prvem letu dokaj konzervativno in korektno ocenili smrtnost o covidu. Naslednje leto je umrlo največ ljudi za covidom. Razlika v grafu je 847 ljudi, kar je že kar veliko ljudi, katerih vzrok smrti je bil napačno ocenjen. Zadnje leto korone, pa očitno niso več kaj dosti komplicirali. Razlika je kar 1454 ljudi, kar predstavlja 6% vseh umrlih in je relativno velika napaka. 
-Torej lahko potrdimo tezo da je bilo v letu 2021 in 2022 veliko vzrokov smrti napačno ocenjenih in v realnosti za covidom ni umrlo 9201 človek kot je uradni podatek. Pravi podatek se seveda ne da izračunati, ampak glede na najino oceno o pričakovani smrtnosti je to 6843 ljudi.
+Sedaj pa sva pa sva tej napovedi dodala število ljudi, za katere je bil vzrok smrti covid, ki naj bi bili dodatek. Kot vidimo je leta 2020 umrlo nekaj 279 več ljudi kot bi pričakovali. Torej so v prvem letu dokaj konzervativno in korektno ocenili smrtnost s covidom. Naslednje leto je umrlo največ ljudi za covidom. Razlika v grafu je 852 ljudi, kar je že kar veliko ljudi, katerih vzrok smrti je bil napačno ocenjen. Zadnje leto korone, pa očitno niso več kaj dosti komplicirali. Razlika je kar 1459 ljudi, kar predstavlja 7% vseh umrlih in je relativno velika napaka. 
+Torej lahko potrdimo tezo da je bilo v letu 2021 in 2022 veliko vzrokov smrti napačno ocenjenih in v realnosti za covidom ni umrlo 9201 človek kot je uradni podatek. Pravi podatek se seveda ne da izračunati, ampak glede na najino oceno o pričakovani smrtnosti je to 6611 ljudi, raylika torej 2590.
 
+3.2 Bolnišnice
+
+
+4.
 Zanimiva statistika je tudi procent okuzenih cepljenih in necepljenih ljudi.
 
 ![image](https://user-images.githubusercontent.com/82542995/232959271-d4758423-f385-4ac4-9410-c5cfe4c49f68.png)
@@ -39,10 +48,10 @@ Zanimiva statistika je tudi procent okuzenih cepljenih in necepljenih ljudi.
 Slika 3: Procent okuženih cepljenih in necepljenih ljudi
 
 
-4. Zaključek
+5. Zaključek
 Seminarska naloga pokriva skoraj vsa področja epidemije in je bilo tudi za naju izredno zanimivo primerjati, kaj so mediji govorili po poročilih, kakšna je bila ulična propaganda, kako je takratna vlada reagirala z ukrepi. Meniva da so mediji velikokrat nekorektno predstavljali informacije, verjetno samo z namenom, da imajo zgodbo, realnost pa ni bila tako siva.
  
-5. Viri
+6. Viri
 •	Covid Sledilnik: https://covid-19.sledilnik.org/sl/stats
 •	Covid Sledilnik (Git): https://github.com/sledilnik/data-api/ 
 •	Pandas: https://pandas.pydata.org/
